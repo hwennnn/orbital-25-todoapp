@@ -17,16 +17,16 @@ function TaskComponent({
 }: TaskProps) {
   return (
     <tr>
-      <td>{task.id}</td>
-      <td>{task.title}</td>
-      <td>
+      <td style={{ textAlign: "center" }}>{task.id}</td>
+      <td style={{ textAlign: "center" }}>{task.title}</td>
+      <td style={{ textAlign: "center" }}>
         <Checkbox
           {...label}
           checked={task.done}
           onChange={() => handleToggleTask(task)}
         />
       </td>
-      <td>
+      <td style={{ textAlign: "center" }}>
         <Button
           size="small"
           onClick={() => handleDeleteTask(task)}

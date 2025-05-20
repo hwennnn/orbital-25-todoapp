@@ -17,7 +17,7 @@ function TaskManager({
   handleDeleteTask,
 }: TaskManagerProps) {
   return (
-    <>
+    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1rem" }}>
       <TaskInput handleAddNewTask={handleAddNewTask} />
       {tasks.length > 0 && (
         <Box>
@@ -46,7 +46,7 @@ function TaskManager({
           </table>
         </Box>
       )}
-    </>
+    </div>
   );
 }
 
