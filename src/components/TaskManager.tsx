@@ -1,7 +1,7 @@
 import { Task } from "../types";
+import Box from "./Box";
 import TaskComponent from "./TaskComponent";
 import TaskInput from "./TaskInput";
-import Box from "./Box";
 
 interface TaskManagerProps {
   tasks: Task[];
@@ -37,7 +37,6 @@ function TaskManager({
                   <TaskComponent
                     key={index}
                     task={task}
-                    index={index}
                     handleToggleTask={handleToggleTask}
                     handleDeleteTask={handleDeleteTask}
                   />

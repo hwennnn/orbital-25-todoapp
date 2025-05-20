@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { Task } from "../types";
-import CatFact from "./CatFact";
-import Box from "./Box";
-import { Session } from "@supabase/supabase-js";
 import { Button } from "@mui/material";
+import { Session } from "@supabase/supabase-js";
 import { supabase } from "../App";
+import { Task } from "../types";
+import Box from "./Box";
+import CatFact from "./CatFact";
 
 interface HeaderProps {
   tasks: Task[];

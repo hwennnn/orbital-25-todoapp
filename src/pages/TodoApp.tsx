@@ -23,6 +23,9 @@ function TodoApp({ user }: TodoAppProps) {
     if (data !== null) {
       setTasks(data as Task[]);
     }
+    if (error !== null) {
+      console.error("Error fetching tasks: ", error.message);
+    }
   };
 
   useEffect(() => {
@@ -30,28 +33,34 @@ function TodoApp({ user }: TodoAppProps) {
   }, []);
 
   const addNewTask = async (title: string) => {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("tasks")
       .insert([{ title: title, done: false, user_id: user.id }])
       .select();
-    console.log(data, error);
+    if (error !== null) {
+      console.error("Error adding new task: ", error.message);
+    }
     fetchTasks();
   };
 
   const handleToggleTask = async (task: Task) => {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("tasks")
       .update({ done: !task.done })
       .eq("id", task.id)
       .select();
-    console.log(data, error);
+    if (error !== null) {
+      console.error("Error updating task: ", error.message);
+    }
     fetchTasks();
   };
 
   const handleDeleteTask = async (task: Task) => {
     const { error } = await supabase.from("tasks").delete().eq("id", task.id);
     if (error !== null) {
-      console.error(error);
+      if (error !== null) {
+        console.error("Error delete task: ", error.message);
+      }
     }
     fetchTasks();
   };

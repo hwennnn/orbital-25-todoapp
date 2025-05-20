@@ -1,10 +1,9 @@
-import { Task } from "../types";
-import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import { Task } from "../types";
 
 interface TaskProps {
   task: Task;
-  index: number;
   handleToggleTask: (task: Task) => void;
   handleDeleteTask: (task: Task) => void;
 }
@@ -13,7 +12,6 @@ const label = { inputProps: { "aria-label": "Task checkbox" } };
 
 function TaskComponent({
   task,
-  index,
   handleToggleTask,
   handleDeleteTask,
 }: TaskProps) {
